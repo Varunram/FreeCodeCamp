@@ -1,0 +1,73 @@
+#page1 {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("http://www.bigwigo.com/wp-content/uploads/2016/02/00-FB-Share-Pic5.jpg");
+  background-repeat: no-repeat;
+}
+#page2 {
+  top: -10px;
+  padding-left: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("http://nuclearweaponarchive.org/India/CelebrationatPokhran800c10.jpg");
+  background-size: 100% 100%;
+}
+
+.heading{
+  color: #006CFF;
+  font: 60px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: relative;
+  left: -25px;
+}
+.headinfo{
+  color: #D4D4D4;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 22px;
+  font-weight: lighter;
+  position: relative;
+  top: 0px;
+  left: -10px;
+}
+.image1{
+  color: #D4D4D4;
+  position: absolute;
+  top: 88%;
+  left: 76%;
+}
+.heading2{
+  color: black;
+  font: 40px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.links{
+  text-decoration: none;
+  color: #d4d4d4;
+  position: absolute;
+  top: 5%;
+  left: 85%;
+}
+.links:hover{
+  color:#d4d4d4;
+}
+.info{
+  font-size: 15px;
+  height: 300px;
+  color: #2C2C2C;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+}
+.image2{
+  color: black;
+  position: relative;
+  top: 15%;
+  left: 78%;
+}
+.quote{
+  color: black;
+  font: 40px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: relative;
+  top: -43%;
+  left: 65%;
+}
+a {
+  color: #00B7FF;
+}

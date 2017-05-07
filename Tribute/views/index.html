@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Tribute to Dr.APJ Abdul Kalam</title>
+    <script src="javascripts/jquery.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+  <body>
+    <div id="page1">
+      <p class="heading"> Dr.APJ Abdul Kalam</p>
+      <p class="headinfo col col-md-4"> A source of inspiration for Indian youth of today</p>
+      <p class="image1 col col-md-3"> Giving one of his signature inspirational interviews to young students </p>
+      <div class="links col col-md-3">
+      <p> Designed by Varunram</p>
+      <p style="position: absolute; left: 120px; top: 17px;"><a href="https://github.com/Varunram" style="text-decoration: none; color:inherit;">GitHub</a></p>
+    </div>
+    </div>
+    <div id="page2">
+      <b><p class="heading2"> A Brief Timeline of his Life </p></b>
+      <div class="col col-md-9 info">
+        <ul class="list-group">
+          <b style="weight: light">
+          <li class="list-group-item block" style="opacity: 0.65">Born on 15 October 1931 to a fisherman family from Rameswaram</li>
+          <li class="list-group-item block" style="opacity: 0.65">Sold Newspapers to support his family's income at aa very young age</li>
+          <li class="list-group-item block" style="opacity: 0.65">An average student at school but had a huge desire to learn</li>
+          <li class="list-group-item block" style="opacity: 0.65"><b>1954: </b> Graduated from St.Joseph's College Tiruchirapalli</li>
+          <li class="list-group-item block" style="opacity: 0.65"><b>1955: </b> Moved to Madras to study Aerospace Engineering at Madras Institute of Technology</li>
+          <li class="list-group-item block" style="opacity: 0.65"><b>1960: </b> Joined DRDO as a scientist</li>
+          <li class="list-group-item block" style="opacity: 0.65"><b>1964: </b> Visits NASA's facilitied in the United States</li>
+          <li class="list-group-item block" style="opacity: 0.65"><b>1969: </b> Starts working at the Indian Space Research Organization (ISRO)</li>
+          <li class="list-group-item block" style="opacity: 0.65"><b>1970-1990: </b> Develops India's highly successful Satellite Launch Program PSLV</li>
+          <li class="list-group-item block" style="opacity: 0.65"><b>1998: </b> Leads India's historic Pokhran-II Test</li>
+          <li class="list-group-item block" style="opacity: 0.65"><b>2002: </b> Became the 11th President of India</li>
+          <li class="list-group-item block" style="opacity: 0.65"><b>2007: </b> Retires from Presidency</li>
+          <li class="list-group-item block" style="opacity: 0.65"><b>2015: </b> The great man passes away on 27 July at 7:45 pm IST</li>
+        </ul></b>
+      </div>
+      <p class="quote col col-md-4">"Man needs his difficulties because they are necessary to enjoy success."</p>
+      <p class="image2">Third from left is Dr.APJ Abdul Kalam </p>
+    </div>
+  </body>
+  <script>
+    $(document).ready(function() {
+    function setHeight() {
+      var totHeight = $(window).height();
+      $('#page1').css({
+        'height': totHeight + 'px'
+      });
+      $('#page2').css({
+        'height': totHeight -150 + 'px'
+      });
+    }
+    $(window).on('resize', function() { setHeight(); });
+    setHeight();
+  });
+  </script>
+</html>
