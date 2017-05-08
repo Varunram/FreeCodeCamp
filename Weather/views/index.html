@@ -20,7 +20,7 @@
           }
       }
       function showPosition(position){
-        var URL = "http://api.darksky.net/forecast/3b2e8870b6f0151e7ff79d2af4558aa4/" + position.coords.latitude + "," + position.coords.longitude;
+        var URL = "https://api.darksky.net/forecast/3b2e8870b6f0151e7ff79d2af4558aa4/" + position.coords.latitude + "," + position.coords.longitude;
         $.getJSON(URL, function(json){
           $(".message").html(JSON.stringify(json));
         });
