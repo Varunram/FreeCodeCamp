@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Weather Now</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  </head>
+  <body>
+      <p>Click the button to get your coordinates.</p>
+      <p id="weather"></p>
+      <p id="message"></p>
+  </body>
+  <script>
+    $(document).ready(function(){
+
+      var x = document.getElementById("weather");
+      function getLocation() {
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+              x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+      }
+      function showPosition(position){
+        var URL = "http://api.darksky.net/forecast/3b2e8870b6f0151e7ff79d2af4558aa4/" + position.coords.latitude + "," + position.coords.longitude;
+        $.getJSON(URL, function(json){
+          $(".message").html(JSON.stringify(json));
+        });
+      }
+
+      getLocation();
+
+    });
+  </script>
+</html>
