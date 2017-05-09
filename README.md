@@ -1,5 +1,7 @@
-# Varunram's FCC Repo
+# A list of Cool Projects done as a part of FreeCodeCamp
 
-This repo contains all my submissions as part of FreeCodeCamp
-Feel Free to suggest updates/modifications in any part of the code in this repo.
-Thanks for hopping by!
+## Tribute to Dr.APJ Abdul Kalam
+![Image1](https://github.com/Varunram/FreeCodeCamp/blob/master/Tribute/images/image1.png)
+
+## Live Weather Updates
+![Image1](https://github.com/Varunram/FreeCodeCamp/blob/master/Weather/images/image1.png)
