@@ -1,11 +1,24 @@
 <html>
   <head>
     <title>Weather Now</title>
+    <link rel="stylesheet" href="stylesheets/weather-icons.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   </head>
   <body>
       <p id="weather"></p>
-      <p id="message"></p>
+      <p id="message2"></p>
+      <p id="message3"></p>
+      <div class="c1"></div>
+      <div class="c2">
+        <p id="message1"></p>
+        <p id="message5"></p>
+        <p id="message6"></p>
+      </div>
+      <i id="wtrcloud" class="wi"></i>
+      <div class="whitebgr"></div>
+      <div id="design">Designed by Varunram <br> <a href="https://github.com/Varunram" style ="text-decoration: none; color: inherit;">GitHub</a></div>
   </body>
   <script>
     $(document).ready(function(){
@@ -21,10 +34,32 @@
       function showPosition(position){
         var URL = "https://api.darksky.net/forecast/3b2e8870b6f0151e7ff79d2af4558aa4/" + position.coords.latitude + "," + position.coords.longitude + "?callback=?";
           $.getJSON(URL, function(json){
-            $("#message").html(JSON.stringify(json));
-            console.log(JSON.stringify(json));
+            var str;
+            str = JSON.stringify(json);
+            str2 = $.parseJSON(str);
+            console.log(str2);
+            $("#message1").html(str2['timezone']);
+            $("#message2").html(str2['currently']['summary']);
+            var icon = "wi-forecast-io-" + str2['currently']['icon'];
+            console.log(icon);
+            $("#wtrcloud").addClass(icon);
+            $(".c1").html(Math.floor(str2['currently']['temperature']) + "&deg;");
+            $("#message5").html(str2['currently']['apparentTemperature']);
+            $("#message6").html(str2['currently']['humidity']);
+            // timezone, [currently][summary, icon, temperature, apparenttemperature, humidity]
           });
         }
+        var colors = ['#16a085', '#27ae60', '#2c3e50', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
+        /*function changeColor() {
+              var color = Math.floor(Math.random() * colors.length);
+              $("html body").animate({
+                backgroundColor: colors[color],
+                color: colors[color]
+              }, 1000);
+        }
+        changeColor(); */
+        var color = Math.floor(Math.random() * colors.length);
+        $("body").css("background-color", colors[color]);
         getLocation();
       }
     );
