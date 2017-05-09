@@ -8,9 +8,13 @@
     </title>
   </head>
   <body>
-    <div class="form-group">
-      <input onkeydown="search(this)" id="input1" type="text" class="form-control" placeholder="What do you want to know today?"/>
+    <img class ="img1" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png">
+    <div class="form-group searchbar">
+      <input onkeydown="search(this)" id="input1" type="text" class="form-control" placeholder="What do you want to know today?" style="font-size: 20px;"/>
     </div>
+    <a id = "btn1" class="btnx btn btn-success" href="https://en.wikipedia.org/wiki/Special:Random">Random Article</a>
+    <a id = "btn2" class="btnx btn btn-success">Wiki Search</a>
+    <div id="res"></div>
     <p id="test"></p>
   </body>
   <script>
@@ -19,21 +23,36 @@
         searchWiki();
       }
     }
+    $("#btn2").click(function(){
+      searchWiki();
+    });
     function searchWiki(){
       var search = $("input").val();
+      $(".form-group").removeClass("searchbar").addClass("searched");
+      $("#btn1").addClass("hidden");
+      $("#btn2").addClass("hidden");
+      $("img").addClass("hidden");
       var URL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + search + "&callback=?";
       $.getJSON(URL,function(json){
-        arr = [];
+        arrt = []; arre = [];
         str = JSON.stringify(json);
         str2 = $.parseJSON(str);
         str3 = str2.query.pages;
         for (var key in str3) {
           if (str3.hasOwnProperty(key)) {
-            arr.push(str3[key].title); //and extract
+            arrt.push(str3[key].title); //and extract
+            arre.push(str3[key].extract);
             // str3[key].thumbnail.source, str3[key].title, str3[key].extract
           }
         }
-        $("#test").html(arr);
+        var strt ="<ul>";
+        for(var i=0;i<9;i++){
+          strt+="<li>" + arrt[i];
+          strt+="<p>" + arre[i] + "</p>";
+          strt+= "</li>";
+        }
+        strt+="</ul>";
+        $("#res").html(strt);
       });
     }
   </script>
