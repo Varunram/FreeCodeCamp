@@ -8,6 +8,7 @@
     </title>
   </head>
   <body>
+    <div id="design">Designed by Varunram <br> <a href="https://github.com/Varunram" style ="text-decoration: none; color: inherit;">GitHub</a></div>
     <img class ="img1" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png">
     <div class="form-group searchbar">
       <input onkeydown="search(this)" id="input1" type="text" class="form-control" placeholder="What do you want to know today?" style="font-size: 20px;"/>
@@ -38,6 +39,7 @@
         str = JSON.stringify(json);
         str2 = $.parseJSON(str);
         str3 = str2.query.pages;
+        console.log(str3);
         for (var key in str3) {
           if (str3.hasOwnProperty(key)) {
             arrt.push(str3[key].title); //and extract
@@ -47,7 +49,7 @@
         }
         var strt ="<ul>";
         for(var i=0;i<9;i++){
-          strt+="<li>" + arrt[i];
+          strt+="<li>" + "<h1>" + arrt[i] + "</h1>";
           strt+="<p>" + arre[i] + "</p>";
           strt+= "</li>";
         }
