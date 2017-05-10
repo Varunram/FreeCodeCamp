@@ -3,20 +3,25 @@
     <link rel ="stylesheet" href="stylesheets/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <title>Random Quote Generator</title>
   </head>
   <body>
-    <div class="quote-text">
+    <div class="quote-box">
       <p id="text"></p>
-    </div>
-    <div class="quote-author">
       <p id="author"></p>
+      <button class="quote getquote">Quote</button>
+      <button class="quote publishquote"><a id="twitter" style="text-decoration: none;">Publish</a></button>
     </div>
-    <button class="getquote">Get Quote</button>
-
+  <div id="design">Designed by Varunram <br> <a href="https://github.com/Varunram" style ="text-decoration: none; color: inherit;">GitHub</a></div>
   </body>
   <script>
   var colors = ['#16a085', '#27ae60', '#2c3e50', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
+  var color1 = Math.floor(Math.random() * colors.length);
+  $("body").css("background-color", colors[color1]);
+  $(".getquote").css("background-color", colors[color1]);
+  $(".publishquote").css("background-color", colors[color1]);
+  $("#design").css("color", colors[color1]);
   var currentQuote = '', currentAuthor = '';
   function getQuote(){
     $.ajax({
@@ -29,8 +34,8 @@
       success: function(response) {
         var r = JSON.parse(response);
         currentQuote = r.quote;
-        currentAuthor = r.author;
-        $(".quote-text").animate({
+        currentAuthor = +r.author;
+        $("#text").animate({
             opacity: 0
           }, 500,
           function() {
@@ -40,14 +45,15 @@
             $('#text').text(r.quote);
           });
 
-        $(".quote-author").animate({
+        $("#author").animate({
             opacity: 0
           }, 500,
           function() {
             $(this).animate({
               opacity: 1
             }, 500);
-            $('#author').html(r.author);
+            var x = "- "+r.author;
+            $('#author').html(x);
           });
 
         var color = Math.floor(Math.random() * colors.length);
@@ -56,9 +62,17 @@
           backgroundColor: colors[color],
           color: colors[color]
         }, 1000);
-        $(".button").animate({
+        $(".getquote").animate({
           backgroundColor: colors[color]
-        }, 1000);
+        }, 100);
+        $(".publishquote").animate({
+          backgroundColor: colors[color]
+        }, 100);
+        $("#author").css("color", colors[color]);
+        $("#design").css("color", colors[color]);
+        var str = 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + "\"" + currentQuote  + "\"";
+        console.log(str);
+        $("#twitter").attr('href', str);
       }
     });
   }
